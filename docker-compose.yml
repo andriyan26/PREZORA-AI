@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: prezora-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: prezora_ai
+      MYSQL_USER: prezora_user
+      MYSQL_PASSWORD: prezora_password
+    ports:
+      - "3307:3306"
+    volumes:
+      - prezora_mysql_data:/var/lib/mysql
+
+volumes:
+  prezora_mysql_data:
+    driver: local
